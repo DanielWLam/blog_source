@@ -27,3 +27,18 @@ var a = 2;
 3. Code-generation
 
   生成代码，这里的细节的很多了，但是书中没有展开。就是把AST生成可执行的代码，有可能是汇编？
+
+
+  LHS和RHS
+
+        LHS: left hand side look up
+        RHS: right hand side look up
+按我个人的理解，赋值操作都是LHS，直接使用某个变量都是RHS
+```js
+function foo(a) {
+    var b = a;
+    return a + b;
+}
+var c = foo(2);
+```
+这段代码里，LHS有3次（2次赋值，一次函数传参），RHS4次（使用foo， 使用a，使用a， 使用b）
